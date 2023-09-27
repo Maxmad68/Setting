@@ -95,7 +95,7 @@ struct PreferencesView: View {
                         }
 
                         SettingGroup(header: "Super customizable!") {
-                            SettingToggle(title: "Turbo Mode", isOn: $model.turboMode)
+							SettingToggle(icon: .system(icon: "star", foregroundColor: .white, backgroundColor: .green), title: "Turbo Mode", isOn: $model.turboMode)
 
                             if model.turboMode {
                                 SettingText(title: "Turbo mode is on!", foregroundColor: .secondary)

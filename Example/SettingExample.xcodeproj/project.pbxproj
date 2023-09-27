@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C25FE1929A696B900C11678 /* Setting in Frameworks */ = {isa = PBXBuildFile; productRef = 3C25FE1829A696B900C11678 /* Setting */; };
 		3C25FE1B29A6B06C00C11678 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25FE1A29A6B06C00C11678 /* PreferencesView.swift */; };
 		3C25FE1D29A6B0AF00C11678 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25FE1C29A6B0AF00C11678 /* Utilities.swift */; };
 		3C25FE1F29A6B0D700C11678 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25FE1E29A6B0D700C11678 /* SettingsView.swift */; };
@@ -16,6 +15,7 @@
 		3CD8B78C29A683D100463C48 /* SettingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8B78B29A683D100463C48 /* SettingExampleApp.swift */; };
 		3CD8B78E29A683D100463C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8B78D29A683D100463C48 /* ContentView.swift */; };
 		3CD8B79029A683D300463C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8B78F29A683D300463C48 /* Assets.xcassets */; };
+		9CD883242AC432400097AB36 /* Setting in Frameworks */ = {isa = PBXBuildFile; productRef = 9CD883232AC432400097AB36 /* Setting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C25FE1929A696B900C11678 /* Setting in Frameworks */,
+				9CD883242AC432400097AB36 /* Setting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +94,7 @@
 			);
 			name = SettingExample;
 			packageProductDependencies = (
-				3C25FE1829A696B900C11678 /* Setting */,
+				9CD883232AC432400097AB36 /* Setting */,
 			);
 			productName = SettingExample;
 			productReference = 3CD8B78829A683D100463C48 /* SettingExample.app */;
@@ -125,7 +125,7 @@
 			);
 			mainGroup = 3CD8B77F29A683D100463C48;
 			packageReferences = (
-				3C25FE1729A696B900C11678 /* XCRemoteSwiftPackageReference "Setting" */,
+				9CD883222AC432400097AB36 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 3CD8B78929A683D100463C48 /* Products */;
 			projectDirPath = "";
@@ -371,21 +371,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		3C25FE1729A696B900C11678 /* XCRemoteSwiftPackageReference "Setting" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aheze/Setting.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		9CD883222AC432400097AB36 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3C25FE1829A696B900C11678 /* Setting */ = {
+		9CD883232AC432400097AB36 /* Setting */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3C25FE1729A696B900C11678 /* XCRemoteSwiftPackageReference "Setting" */;
 			productName = Setting;
 		};
 /* End XCSwiftPackageProductDependency section */
