@@ -32,7 +32,7 @@ struct ControlPanelView: View {
 
                     SettingButton(title: "Export Data") {
                         print("Data Exported!")
-                    }
+					}.disabled(true)
                 }
 
                 let a = Binding {

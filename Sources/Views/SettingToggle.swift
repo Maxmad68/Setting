@@ -18,6 +18,7 @@ public struct SettingToggle: View, Setting {
 	public var horizontalSpacing = CGFloat(12)
 	public var verticalPadding = CGFloat(14)
 	public var horizontalPadding = CGFloat(16)
+	public var disabled: Bool = false
 	public var icon: SettingIcon?
 	
 	public init(
@@ -43,6 +44,7 @@ public struct SettingToggle: View, Setting {
 			title: title,
 			isOn: $isOn,
 			icon: icon,
+			disabled: disabled,
 			horizontalSpacing: horizontalSpacing,
 			verticalPadding: verticalPadding,
 			horizontalPadding: horizontalPadding
@@ -57,7 +59,7 @@ struct SettingToggleView: View {
 	@Binding var isOn: Bool
 	
 	var icon: SettingIcon?
-	
+	var disabled: Bool = false
 	var horizontalSpacing = CGFloat(12)
 	var verticalPadding = CGFloat(14)
 	var horizontalPadding = CGFloat(16)
@@ -72,11 +74,13 @@ struct SettingToggleView: View {
 				.fixedSize(horizontal: false, vertical: true)
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.padding(.vertical, verticalPadding)
+				.foregroundStyle(disabled ? .secondary : .primary)
 			
 			Toggle("", isOn: $isOn)
 				.labelsHidden()
+				.disabled(disabled)
 		}
-		.padding(.horizontal, horizontalPadding ?? edgePadding)
+		.padding(.horizontal, horizontalPadding)
 		.accessibilityElement(children: .combine)
 	}
 }

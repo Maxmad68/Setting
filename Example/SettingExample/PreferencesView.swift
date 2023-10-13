@@ -158,6 +158,7 @@ struct PreferencesView: View {
 
                             SettingGroup {
                                 SettingPicker(
+									icon: .system(icon: "star", foregroundColor: .white, backgroundColor: .blue),
                                     title: "Frequency (Menu)",
                                     choices: [
                                         "Every Hour",

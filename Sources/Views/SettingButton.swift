@@ -19,6 +19,7 @@ public struct SettingButton: View, Setting {
     public var horizontalSpacing = CGFloat(12)
     public var verticalPadding = CGFloat(14)
     public var horizontalPadding: CGFloat? = nil
+	public var disabled: Bool = false
     public var action: () -> Void
 
     public init(
@@ -49,6 +50,7 @@ public struct SettingButton: View, Setting {
             horizontalSpacing: horizontalSpacing,
             verticalPadding: verticalPadding,
             horizontalPadding: horizontalPadding,
+			disabled: disabled,
             action: action
         )
     }
@@ -64,6 +66,7 @@ struct SettingButtonView: View {
     var horizontalSpacing = CGFloat(12)
     var verticalPadding = CGFloat(14)
     var horizontalPadding: CGFloat? = nil
+    var disabled: Bool = false
     var action: () -> Void
 
     var body: some View {
@@ -77,6 +80,7 @@ struct SettingButtonView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, verticalPadding)
+					.foregroundStyle(disabled ? .secondary : .primary)
 
                 if let indicator {
                     Image(systemName: indicator)
@@ -86,7 +90,8 @@ struct SettingButtonView: View {
             .padding(.horizontal, horizontalPadding ?? edgePadding)
             .accessibilityElement(children: .combine)
         }
-        .buttonStyle(.row)
+		.buttonStyle(.row)
+		.disabled(disabled)
     }
 }
 
@@ -114,4 +119,10 @@ public extension SettingButton {
         button.indicator = indicator
         return button
     }
+	
+	func disabled(_ disabled: Bool) -> SettingButton {
+		var button = self
+		button.disabled = disabled
+		return button
+	}
 }
