@@ -84,3 +84,29 @@ struct SettingToggleView: View {
 		.accessibilityElement(children: .combine)
 	}
 }
+
+public extension SettingToggle {
+	func icon(_ icon: String, color: Color = .blue) -> SettingToggle {
+		var button = self
+		button.icon = .system(icon: icon, backgroundColor: color)
+		return button
+	}
+	
+	func icon(_ icon: String, foregroundColor: Color = .white, backgroundColor: Color = .blue) -> SettingToggle {
+		var button = self
+		button.icon = .system(icon: icon, foregroundColor: foregroundColor, backgroundColor: backgroundColor)
+		return button
+	}
+	
+	func icon(icon: SettingIcon) -> SettingToggle {
+		var button = self
+		button.icon = icon
+		return button
+	}
+	
+	func disabled(_ disabled: Bool) -> SettingToggle {
+		var button = self
+		button.disabled = disabled
+		return button
+	}
+}
