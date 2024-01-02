@@ -22,6 +22,7 @@ public struct SettingPicker: View, Setting {
     public var verticalPadding = CGFloat(14)
     public var horizontalPadding: CGFloat?
     public var choicesConfiguration = ChoicesConfiguration()
+	public var disabled: Bool = false
 
     public init(
         id: AnyHashable? = nil,
@@ -99,13 +100,14 @@ public struct SettingPicker: View, Setting {
     public var body: some View {
         SettingPickerView(
             icon: icon,
-            title: title,
-            choices: choices,
-            selectedIndex: $selectedIndex,
-            foregroundColor: foregroundColor,
-            horizontalSpacing: horizontalSpacing,
-            verticalPadding: verticalPadding,
-            horizontalPadding: horizontalPadding,
+			disabled: disabled,
+			title: title,
+			choices: choices,
+			selectedIndex: $selectedIndex,
+			foregroundColor: foregroundColor,
+			horizontalSpacing: horizontalSpacing,
+			verticalPadding: verticalPadding,
+			horizontalPadding: horizontalPadding,
             choicesConfiguration: choicesConfiguration
         )
     }
@@ -125,6 +127,7 @@ struct SettingPickerView: View {
     @Environment(\.settingSecondaryColor) var settingSecondaryColor
 
     var icon: SettingIcon?
+	var disabled: Bool = false
     let title: String
     var choices: [String]
     @Binding var selectedIndex: Int
@@ -179,6 +182,7 @@ struct SettingPickerView: View {
                 }
                 .opacity(0)
             }
+			.disabled(disabled)
 
         case .menu:
             HStack(spacing: horizontalSpacing) {
@@ -196,6 +200,7 @@ struct SettingPickerView: View {
                         Text(choice).tag(index)
                     }
                 }
+				.disabled(disabled)
                 .pickerStyle(.menu)
                 #if os(iOS)
                     .padding(.trailing, -edgePadding + 2)
@@ -224,6 +229,7 @@ struct SettingPickerView: View {
                     .padding(.horizontal, choicesConfiguration.horizontalPadding)
                 }
                 .buttonStyle(.row)
+				.disabled(disabled)
             }
         }
     }

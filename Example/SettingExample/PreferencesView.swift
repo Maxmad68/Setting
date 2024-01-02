@@ -88,6 +88,7 @@ struct PreferencesView: View {
                                 ],
                                 selectedIndex: $model.languageIndex
                             )
+							.disabled(true)
                         }
 
                         SettingGroup(header: "Brightness", footer: "Selected brightness: \(Int(model.brightness))") {
