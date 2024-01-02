@@ -275,3 +275,29 @@ struct SettingPickerChoicesView: View {
         }
     }
 }
+
+public extension SettingPicker {
+	func icon(_ icon: String, color: Color = .blue) -> SettingPicker {
+		var button = self
+		button.icon = .system(icon: icon, backgroundColor: color)
+		return button
+	}
+	
+	func icon(_ icon: String, foregroundColor: Color = .white, backgroundColor: Color = .blue) -> SettingPicker {
+		var button = self
+		button.icon = .system(icon: icon, foregroundColor: foregroundColor, backgroundColor: backgroundColor)
+		return button
+	}
+	
+	func icon(icon: SettingIcon) -> SettingPicker {
+		var button = self
+		button.icon = icon
+		return button
+	}
+	
+	func disabled(_ disabled: Bool) -> SettingPicker {
+		var button = self
+		button.disabled = disabled
+		return button
+	}
+}
