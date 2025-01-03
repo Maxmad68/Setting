@@ -20,6 +20,7 @@ public struct SettingPage: Setting {
     public var backgroundColor: Color?
     public var navigationTitleDisplayMode = NavigationTitleDisplayMode.automatic
     public var previewConfiguration = PreviewConfiguration()
+	public var disabled: Bool = false
     @SettingBuilder public var tuple: SettingTupleView
 
     public init(
@@ -173,6 +174,7 @@ public struct SettingPagePreviewView: View {
     var horizontalSpacing = CGFloat(12)
     var verticalPadding = CGFloat(14)
     var horizontalPadding: CGFloat? = nil
+	var disabled: Bool = false
 
     public init(
         title: String,
@@ -182,7 +184,8 @@ public struct SettingPagePreviewView: View {
         iconForegroundColor: Color? = nil,
         horizontalSpacing: CGFloat = CGFloat(12),
         verticalPadding: CGFloat = CGFloat(14),
-        horizontalPadding: CGFloat? = nil
+		horizontalPadding: CGFloat? = nil,
+		disabled: Bool = false
     ) {
         self.title = title
         self.selectedChoice = selectedChoice
@@ -191,6 +194,7 @@ public struct SettingPagePreviewView: View {
         self.horizontalSpacing = horizontalSpacing
         self.verticalPadding = verticalPadding
         self.horizontalPadding = horizontalPadding
+		self.disabled = disabled
     }
 
     public var body: some View {
@@ -203,6 +207,7 @@ public struct SettingPagePreviewView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, verticalPadding)
+				.foregroundStyle(disabled ? .secondary : .primary)
 
             if let selectedChoice {
                 Text(selectedChoice)
@@ -214,6 +219,7 @@ public struct SettingPagePreviewView: View {
         }
         .padding(.horizontal, horizontalPadding ?? edgePadding)
         .accessibilityElement(children: .combine)
+
     }
 }
 
@@ -257,4 +263,13 @@ extension SettingPage {
 
         return paths
     }
+}
+
+
+public extension SettingPage {
+	func disabled(_ disabled: Bool) -> SettingPage {
+		var button = self
+		button.disabled = disabled
+		return button
+	}
 }

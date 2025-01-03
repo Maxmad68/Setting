@@ -137,6 +137,7 @@ struct PreferencesView: View {
                             }
                         }
                     }
+					.disabled(true)
 
                     SettingPage(title: "Notifications") {
                         SettingGroup(footer: model.enableNotifications ? nil : "Turn on to see more settings.") {

@@ -48,7 +48,8 @@ public struct SettingView: View {
                         indicator: page.previewConfiguration.indicator,
                         horizontalSpacing: page.previewConfiguration.horizontalSpacing,
                         verticalPadding: page.previewConfiguration.verticalPadding,
-                        horizontalPadding: page.previewConfiguration.horizontalPadding
+                        horizontalPadding: page.previewConfiguration.horizontalPadding,
+						disabled: page.disabled
                     )
                 }
                 .buttonStyle(.row)
@@ -60,6 +61,7 @@ public struct SettingView: View {
                     }
                     .opacity(0)
                 }
+				.disabled(page.disabled)
 
             } else {
                 SettingPageView(
